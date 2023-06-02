@@ -9,6 +9,9 @@ explain: search untill the target==0
                2     -  2   -    -               -       -     -
               / \        |                              |
              -   -       -                              -
+search([2, 3, 6, 7], 5, 0, [2])
+search([2, 3, 6, 7], 3, 0, [2,2])
+search([2, 3, 6, 7], 0, 1, [2,2,3])
 */
 
 class Solution {
@@ -34,7 +37,7 @@ public:
     
     vector<vector<int> > combinationSum(vector<int> &num, int target) {
         sort(num.begin(), num.end()); //  Sorting the input array can help to eliminate duplicate combinations and improve the efficiency of the search algorithm.
-        vector<int> pSol; // vector to store the partial solution
+        vector<int> pSol;
         search(num, target, 0, pSol);
         return result;
     }  
