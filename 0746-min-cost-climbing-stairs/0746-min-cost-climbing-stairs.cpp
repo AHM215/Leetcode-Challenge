@@ -3,7 +3,7 @@ public:
     // Time complexity: O(n)
     // Space complexity: O(n)
     // memoization approach
-    int minCostClimbingStairs(vector<int>& cost) {
+    /*int minCostClimbingStairs(vector<int>& cost) {
         int n = cost.size();
         vector<int> dp(n+1, -1); // initialize dp array with -1
         // return the minimum cost of climbing to the top using memoized functions
@@ -24,9 +24,9 @@ public:
         
         // Return the minimum cost of climbing to nth step
         return dp[n];
-    }
+    }*/
     // dp approach
-    /*int minCostClimbingStairs(vector<int>& cost) {
+    int minCostClimbingStairs(vector<int>& cost) {
         int n = cost.size();
         vector<int> dp(n+1, 0); // initialize dp array
         
@@ -37,6 +37,6 @@ public:
         
         // return the minimum cost to climb to the top
         return dp[n];
-    }*/
+    }
     
 };
