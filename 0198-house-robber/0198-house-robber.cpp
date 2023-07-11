@@ -23,20 +23,19 @@ public:
     // Time complexity: O(n)
     // Space complexity: O(1)
     int rob(vector<int>& nums){
-        int n = nums.size();
-        if(n == 1) return nums[0];
+            int n = nums.size();
+            if (n == 0) return 0;
+            if (n == 1) return nums[0];
 
-        int prev2 = nums[0];   // initialize prev2 to the value of the first element
-        int prev1 = max(nums[0], nums[1]); // initialize prev1 to the maximum of the first two elements
-        int curr = prev1;      // initialize curr to the maximum of prev2 and prev1
+            // Initialize the dp array
+            vector<int> dp(n+1, 0);
+            dp[1] = nums[0];
 
-        for(int i = 2; i < n; i++){
-            curr = max(prev1, nums[i] + prev2); 
-            // update curr to the maximum of prev1 and the sum of the current element and prev2
-            prev2 = prev1;  // update prev2 to the previous value of prev1
-            prev1 = curr;   // update prev1 to the current value of curr
-        }
+            // Fill the dp array using the recurrence relation
+            for (int i = 2; i <= n; i++) {
+                dp[i] = max(dp[i-1], dp[i-2] + nums[i-1]);
+            }
 
-        return curr;    // return the maximum amount of money that can be robbed from the input array
-    }
+            return dp[n];
+        }   // return the maximum amount of money that can be robbed from the input array
 };
