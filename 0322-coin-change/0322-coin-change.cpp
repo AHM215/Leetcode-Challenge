@@ -8,7 +8,7 @@ public:
             for (int j = 0; j < coins.size(); j++) { // loop over all coin denominations
                 // if the current coin can be used to make up the current amount
                 // and using the current coin leads to a valid solution
-                if (coins[j] <= i && dp[i - coins[j]] != INT_MAX) {
+                if (coins[j] <= i ) {
                     dp[i] = min(dp[i], dp[i - coins[j]] + 1); 
                     // take the minimum of the current DP value and the new DP value
                 }
